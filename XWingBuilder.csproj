@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B44F0F2C-5A68-4E8A-BDC6-CA958435C218}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>XWingBuilder</RootNamespace>
+    <AssemblyName>XWingBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\drnic\Apps\XWBuilder\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/XWingBuilder/</UpdateUrl>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>29CE31D8DF063369143110BB093E9492288B2098</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>XWingBuilder_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\XWBuilderIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>XWingBuilder.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CardSelectWindow.xaml.cs">
+      <DependentUpon>CardSelectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\CommandHandler.cs" />
+    <Compile Include="Scripts\Data.cs" />
+    <Compile Include="Scripts\Pilot.cs" />
+    <Compile Include="Scripts\PilotDataContext.cs" />
+    <Compile Include="Scripts\Ship.cs" />
+    <Compile Include="Scripts\ShipCreatorDataContext.cs" />
+    <Compile Include="Scripts\ShipDataContext.cs" />
+    <Compile Include="Scripts\UpgradeData.cs" />
+    <Compile Include="Scripts\XwingClasses.cs" />
+    <Compile Include="XWingSquadBuilder.xaml.cs">
+      <DependentUpon>XWingSquadBuilder.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CardSelectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="XWingSquadBuilder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Fonts\xwing-miniatures-ships.ttf" />
+    <Resource Include="Fonts\xwing-miniatures.ttf" />
+    <Resource Include="Fonts\EurostileLTStd-Demi.otf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Factions\Imperial_FactionImage.png" />
+    <Resource Include="Images\Factions\Rebel_FactionImage.png" />
+    <Resource Include="Images\Factions\Scum_FactionImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\upgrades\Astromech\bb-8.png" />
+    <Resource Include="Images\upgrades\Astromech\chopper.png" />
+    <Resource Include="Images\upgrades\Astromech\flight-assist-astromech.png" />
+    <Resource Include="Images\upgrades\Astromech\m9-g8.png" />
+    <Resource Include="Images\upgrades\Astromech\r2-astromech.png" />
+    <Resource Include="Images\upgrades\Astromech\r2-d2.png" />
+    <Resource Include="Images\upgrades\Astromech\r2-d6.png" />
+    <Resource Include="Images\upgrades\Astromech\r2-f2.png" />
+    <Resource Include="Images\upgrades\Astromech\r3-a2.png" />
+    <Resource Include="Images\upgrades\Astromech\r3-astromech.png" />
+    <Resource Include="Images\upgrades\Astromech\r4-d6.png" />
+    <Resource Include="Images\upgrades\Astromech\r5-astromech.png" />
+    <Resource Include="Images\upgrades\Astromech\r5-d8.png" />
+    <Resource Include="Images\upgrades\Astromech\r5-k6.png" />
+    <Resource Include="Images\upgrades\Astromech\r5-p9.png" />
+    <Resource Include="Images\upgrades\Astromech\r5-x3.png" />
+    <Resource Include="Images\upgrades\Astromech\r7-astromech.png" />
+    <Resource Include="Images\upgrades\Astromech\r7-t1.png" />
+    <Resource Include="Images\upgrades\Astromech\targeting-astromech.png" />
+    <Resource Include="Images\upgrades\Bomb\bomblet-generator.png" />
+    <Resource Include="Images\upgrades\Bomb\cluster-mines.png" />
+    <Resource Include="Images\upgrades\Bomb\conner-net.png" />
+    <Resource Include="Images\upgrades\Bomb\ion-bombs.png" />
+    <Resource Include="Images\upgrades\Bomb\ordnance-silos.png" />
+    <Resource Include="Images\upgrades\Bomb\proton-bombs.png" />
+    <Resource Include="Images\upgrades\Bomb\proximity-mines.png" />
+    <Resource Include="Images\upgrades\Bomb\seismic-charges.png" />
+    <Resource Include="Images\upgrades\Bomb\thermal-detonators.png" />
+    <Resource Include="Images\upgrades\Cannon\arc-caster-recharging.png" />
+    <Resource Include="Images\upgrades\Cannon\arc-caster.png" />
+    <Resource Include="Images\upgrades\Cannon\autoblaster.png" />
+    <Resource Include="Images\upgrades\Cannon\flechette-cannon.png" />
+    <Resource Include="Images\upgrades\Cannon\heavy-laser-cannon.png" />
+    <Resource Include="Images\upgrades\Cannon\ion-cannon.png" />
+    <Resource Include="Images\upgrades\Cannon\jamming-beam.png" />
+    <Resource Include="Images\upgrades\Cannon\linked-battery.png" />
+    <Resource Include="Images\upgrades\Cannon\mangler-cannon.png" />
+    <Resource Include="Images\upgrades\Cannon\tractor-beam.png" />
+    <Resource Include="Images\upgrades\Cargo\backup-shield-generator.png" />
+    <Resource Include="Images\upgrades\Cargo\broadcast-array.png" />
+    <Resource Include="Images\upgrades\Cargo\cluster-bombs.png" />
+    <Resource Include="Images\upgrades\Cargo\comms-booster.png" />
+    <Resource Include="Images\upgrades\Cargo\docking-clamps.png" />
+    <Resource Include="Images\upgrades\Cargo\em-emitter.png" />
+    <Resource Include="Images\upgrades\Cargo\engine-booster.png" />
+    <Resource Include="Images\upgrades\Cargo\expanded-cargo-hold.png" />
+    <Resource Include="Images\upgrades\Cargo\frequency-jammer.png" />
+    <Resource Include="Images\upgrades\Cargo\ionization-reactor.png" />
+    <Resource Include="Images\upgrades\Cargo\quick-release-cargo-locks.png" />
+    <Resource Include="Images\upgrades\Cargo\shield-projector.png" />
+    <Resource Include="Images\upgrades\Cargo\slicer-tools.png" />
+    <Resource Include="Images\upgrades\Cargo\supercharged-power-cells.png" />
+    <Resource Include="Images\upgrades\Cargo\tibanna-gas-supplies.png" />
+    <Resource Include="Images\upgrades\Crew\4-lom.png" />
+    <Resource Include="Images\upgrades\Crew\admiral-ozzel.png" />
+    <Resource Include="Images\upgrades\Crew\agent-kallus.png" />
+    <Resource Include="Images\upgrades\Crew\azmorigan.png" />
+    <Resource Include="Images\upgrades\Crew\baze-malbus.png" />
+    <Resource Include="Images\upgrades\Crew\bistan.png" />
+    <Resource Include="Images\upgrades\Crew\boba-fett.png" />
+    <Resource Include="Images\upgrades\Crew\bodhi-rook.png" />
+    <Resource Include="Images\upgrades\Crew\bombardier.png" />
+    <Resource Include="Images\upgrades\Crew\boshek.png" />
+    <Resource Include="Images\upgrades\Crew\bossk.png" />
+    <Resource Include="Images\upgrades\Crew\breach-specialist.png" />
+    <Resource Include="Images\upgrades\Crew\c-3po.png" />
+    <Resource Include="Images\upgrades\Crew\cad-bane.png" />
+    <Resource Include="Images\upgrades\Crew\captain-needa.png" />
+    <Resource Include="Images\upgrades\Crew\captain-rex.png" />
+    <Resource Include="Images\upgrades\Crew\carlist-rieekan.png" />
+    <Resource Include="Images\upgrades\Crew\cassian-andor.png" />
+    <Resource Include="Images\upgrades\Crew\chewbacca.png" />
+    <Resource Include="Images\upgrades\Crew\chopper.png" />
+    <Resource Include="Images\upgrades\Crew\cikatro-vizago.png" />
+    <Resource Include="Images\upgrades\Crew\construction-droid.png" />
+    <Resource Include="Images\upgrades\Crew\courier-droid.png" />
+    <Resource Include="Images\upgrades\Crew\darth-vader.png" />
+    <Resource Include="Images\upgrades\Crew\dash-rendar.png" />
+    <Resource Include="Images\upgrades\Crew\death-troopers.png" />
+    <Resource Include="Images\upgrades\Crew\dengar.png" />
+    <Resource Include="Images\upgrades\Crew\director-krennic.png" />
+    <Resource Include="Images\upgrades\Crew\emperor-palpatine.png" />
+    <Resource Include="Images\upgrades\Crew\ezra-bridger.png" />
+    <Resource Include="Images\upgrades\Crew\finn.png" />
+    <Resource Include="Images\upgrades\Crew\fleet-officer.png" />
+    <Resource Include="Images\upgrades\Crew\flight-instructor.png" />
+    <Resource Include="Images\upgrades\Crew\general-hux.png" />
+    <Resource Include="Images\upgrades\Crew\gonk.png" />
+    <Resource Include="Images\upgrades\Crew\grand-moff-tarkin.png" />
+    <Resource Include="Images\upgrades\Crew\greedo.png" />
+    <Resource Include="Images\upgrades\Crew\gunner.png" />
+    <Resource Include="Images\upgrades\Crew\han-solo.png" />
+    <Resource Include="Images\upgrades\Crew\hera-syndulla.png" />
+    <Resource Include="Images\upgrades\Crew\hotshot-co-pilot.png" />
+    <Resource Include="Images\upgrades\Crew\ig-88d.png" />
+    <Resource Include="Images\upgrades\Crew\inspiring-recruit.png" />
+    <Resource Include="Images\upgrades\Crew\intelligence-agent.png" />
+    <Resource Include="Images\upgrades\Crew\isb-slicer.png" />
+    <Resource Include="Images\upgrades\Crew\jabba-the-hutt.png" />
+    <Resource Include="Images\upgrades\Crew\jan-dodonna.png" />
+    <Resource Include="Images\upgrades\Crew\jan-ors.png" />
+    <Resource Include="Images\upgrades\Crew\jyn-erso.png" />
+    <Resource Include="Images\upgrades\Crew\k4-security-droid.png" />
+    <Resource Include="Images\upgrades\Crew\kanan-jarrus.png" />
+    <Resource Include="Images\upgrades\Crew\ketsu-onyo.png" />
+    <Resource Include="Images\upgrades\Crew\kyle-katarn.png" />
+    <Resource Include="Images\upgrades\Crew\kylo-ren.png" />
+    <Resource Include="Images\upgrades\Crew\lando-calrissian.png" />
+    <Resource Include="Images\upgrades\Crew\latts-razzi.png" />
+    <Resource Include="Images\upgrades\Crew\leebo.png" />
+    <Resource Include="Images\upgrades\Crew\leia-organa.png" />
+    <Resource Include="Images\upgrades\Crew\luke-skywalker.png" />
+    <Resource Include="Images\upgrades\Crew\magva-yarro.png" />
+    <Resource Include="Images\upgrades\Crew\mara-jade.png" />
+    <Resource Include="Images\upgrades\Crew\maul.png" />
+    <Resource Include="Images\upgrades\Crew\mercenary-copilot.png" />
+    <Resource Include="Images\upgrades\Crew\moff-jerjerrod.png" />
+    <Resource Include="Images\upgrades\Crew\navigator.png" />
+    <Resource Include="Images\upgrades\Crew\nien-nunb.png" />
+    <Resource Include="Images\upgrades\Crew\operations-specialist.png" />
+    <Resource Include="Images\upgrades\Crew\outlaw-tech.png" />
+    <Resource Include="Images\upgrades\Crew\r2-d2.png" />
+    <Resource Include="Images\upgrades\Crew\raymus-antilles.png" />
+    <Resource Include="Images\upgrades\Crew\rear-admiral-chiraneau.png" />
+    <Resource Include="Images\upgrades\Crew\rebel-captive.png" />
+    <Resource Include="Images\upgrades\Crew\recon-specialist.png" />
+    <Resource Include="Images\upgrades\Crew\rey.png" />
+    <Resource Include="Images\upgrades\Crew\sabine-wren.png" />
+    <Resource Include="Images\upgrades\Crew\saboteur.png" />
+    <Resource Include="Images\upgrades\Crew\saw-gerrera.png" />
+    <Resource Include="Images\upgrades\Crew\shield-technician.png" />
+    <Resource Include="Images\upgrades\Crew\systems-officer.png" />
+    <Resource Include="Images\upgrades\Crew\tactical-officer.png" />
+    <Resource Include="Images\upgrades\Crew\tactician.png" />
+    <Resource Include="Images\upgrades\Crew\tail-gunner.png" />
+    <Resource Include="Images\upgrades\Crew\targeting-coordinator.png" />
+    <Resource Include="Images\upgrades\Crew\toryn-farr.png" />
+    <Resource Include="Images\upgrades\Crew\unkar-plutt.png" />
+    <Resource Include="Images\upgrades\Crew\weapons-engineer.png" />
+    <Resource Include="Images\upgrades\Crew\wed-15-repair-droid.png" />
+    <Resource Include="Images\upgrades\Crew\wookiee-commandos.png" />
+    <Resource Include="Images\upgrades\Crew\ysanne-isard.png" />
+    <Resource Include="Images\upgrades\Crew\zeb-orrelios.png" />
+    <Resource Include="Images\upgrades\Crew\zuckuss.png" />
+    <Resource Include="Images\upgrades\Elite\a-score-to-settle.png" />
+    <Resource Include="Images\upgrades\Elite\adaptability-decrease.png" />
+    <Resource Include="Images\upgrades\Elite\adaptability-increase.png" />
+    <Resource Include="Images\upgrades\Elite\adrenaline-rush.png" />
+    <Resource Include="Images\upgrades\Elite\attanni-mindlink.png" />
+    <Resource Include="Images\upgrades\Elite\bodyguard.png" />
+    <Resource Include="Images\upgrades\Elite\calculation.png" />
+    <Resource Include="Images\upgrades\Elite\cool-hand.png" />
+    <Resource Include="Images\upgrades\Elite\crack-shot.png" />
+    <Resource Include="Images\upgrades\Elite\daredevil.png" />
+    <Resource Include="Images\upgrades\Elite\deadeye.png" />
+    <Resource Include="Images\upgrades\Elite\debris-gambit.png" />
+    <Resource Include="Images\upgrades\Elite\decoy.png" />
+    <Resource Include="Images\upgrades\Elite\determination.png" />
+    <Resource Include="Images\upgrades\Elite\draw-their-fire.png" />
+    <Resource Include="Images\upgrades\Elite\elusiveness.png" />
+    <Resource Include="Images\upgrades\Elite\expert-handling.png" />
+    <Resource Include="Images\upgrades\Elite\expertise.png" />
+    <Resource Include="Images\upgrades\Elite\expose.png" />
+    <Resource Include="Images\upgrades\Elite\fearlessness.png" />
+    <Resource Include="Images\upgrades\Elite\intensity-exhausted.png" />
+    <Resource Include="Images\upgrades\Elite\intensity.png" />
+    <Resource Include="Images\upgrades\Elite\intimidation.png" />
+    <Resource Include="Images\upgrades\Elite\juke.png" />
+    <Resource Include="Images\upgrades\Elite\lightning-reflexes.png" />
+    <Resource Include="Images\upgrades\Elite\lone-wolf.png" />
+    <Resource Include="Images\upgrades\Elite\marksmanship.png" />
+    <Resource Include="Images\upgrades\Elite\opportunist.png" />
+    <Resource Include="Images\upgrades\Elite\outmaneuver.png" />
+    <Resource Include="Images\upgrades\Elite\predator.png" />
+    <Resource Include="Images\upgrades\Elite\push-the-limit.png" />
+    <Resource Include="Images\upgrades\Elite\rage.png" />
+    <Resource Include="Images\upgrades\Elite\ruthlessness.png" />
+    <Resource Include="Images\upgrades\Elite\saturation-salvo.png" />
+    <Resource Include="Images\upgrades\Elite\selflessness.png" />
+    <Resource Include="Images\upgrades\Elite\snap-shot.png" />
+    <Resource Include="Images\upgrades\Elite\squad-leader.png" />
+    <Resource Include="Images\upgrades\Elite\stay-on-target.png" />
+    <Resource Include="Images\upgrades\Elite\swarm-leader.png" />
+    <Resource Include="Images\upgrades\Elite\swarm-tactics.png" />
+    <Resource Include="Images\upgrades\Elite\trick-shot.png" />
+    <Resource Include="Images\upgrades\Elite\veteran-instincts.png" />
+    <Resource Include="Images\upgrades\Elite\wingman.png" />
+    <Resource Include="Images\upgrades\Elite\wired.png" />
+    <Resource Include="Images\upgrades\Hardpoint\dual-laser-turret.png" />
+    <Resource Include="Images\upgrades\Hardpoint\heavy-laser-turret.png" />
+    <Resource Include="Images\upgrades\Hardpoint\ion-cannon-battery.png" />
+    <Resource Include="Images\upgrades\Hardpoint\quad-laser-cannons.png" />
+    <Resource Include="Images\upgrades\Hardpoint\single-turbolasers.png" />
+    <Resource Include="Images\upgrades\Illicit\black-market-slicer-tools.png" />
+    <Resource Include="Images\upgrades\Illicit\burnout-slam.png" />
+    <Resource Include="Images\upgrades\Illicit\cloaking-device.png" />
+    <Resource Include="Images\upgrades\Illicit\contraband-cybernetics.png" />
+    <Resource Include="Images\upgrades\Illicit\dead-man-s-switch.png" />
+    <Resource Include="Images\upgrades\Illicit\emp-device.png" />
+    <Resource Include="Images\upgrades\Illicit\feedback-array.png" />
+    <Resource Include="Images\upgrades\Illicit\glitterstim.png" />
+    <Resource Include="Images\upgrades\Illicit\hot-shot-blaster.png" />
+    <Resource Include="Images\upgrades\Illicit\inertial-dampeners.png" />
+    <Resource Include="Images\upgrades\Illicit\ion-dischargers.png" />
+    <Resource Include="Images\upgrades\Illicit\rigged-cargo-chute.png" />
+    <Resource Include="Images\upgrades\Illicit\scavenger-crane.png" />
+    <Resource Include="Images\upgrades\Missile\advanced-homing-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\assault-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\chardaan-refit.png" />
+    <Resource Include="Images\upgrades\Missile\cluster-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\concussion-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\cruise-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\harpoon-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\homing-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\ion-pulse-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\proton-rockets.png" />
+    <Resource Include="Images\upgrades\Missile\scrambler-missiles.png" />
+    <Resource Include="Images\upgrades\Missile\unguided-rockets.png" />
+    <Resource Include="Images\upgrades\Missile\xx-23-s-thread-tracers.png" />
+    <Resource Include="Images\upgrades\Modification\advanced-cloaking-device.png" />
+    <Resource Include="Images\upgrades\Modification\advanced-slam.png" />
+    <Resource Include="Images\upgrades\Modification\anti-pursuit-lasers.png" />
+    <Resource Include="Images\upgrades\Modification\automated-protocols.png" />
+    <Resource Include="Images\upgrades\Modification\autothrusters.png" />
+    <Resource Include="Images\upgrades\Modification\b-wing-e2.png" />
+    <Resource Include="Images\upgrades\Modification\captured-tie.png" />
+    <Resource Include="Images\upgrades\Modification\combat-retrofit.png" />
+    <Resource Include="Images\upgrades\Modification\countermeasures.png" />
+    <Resource Include="Images\upgrades\Modification\deflective-plating.png" />
+    <Resource Include="Images\upgrades\Modification\engine-upgrade.png" />
+    <Resource Include="Images\upgrades\Modification\experimental-interface.png" />
+    <Resource Include="Images\upgrades\Modification\guidance-chips.png" />
+    <Resource Include="Images\upgrades\Modification\gyroscopic-targeting.png" />
+    <Resource Include="Images\upgrades\Modification\hull-upgrade.png" />
+    <Resource Include="Images\upgrades\Modification\integrated-astromech.png" />
+    <Resource Include="Images\upgrades\Modification\ion-projector.png" />
+    <Resource Include="Images\upgrades\Modification\lightweight-frame.png" />
+    <Resource Include="Images\upgrades\Modification\long-range-scanners.png" />
+    <Resource Include="Images\upgrades\Modification\maneuvering-fins.png" />
+    <Resource Include="Images\upgrades\Modification\multi-spectral-camouflage.png" />
+    <Resource Include="Images\upgrades\Modification\munitions-failsafe.png" />
+    <Resource Include="Images\upgrades\Modification\optimized-generators.png" />
+    <Resource Include="Images\upgrades\Modification\ordnance-tubes.png" />
+    <Resource Include="Images\upgrades\Modification\pulsed-ray-shield.png" />
+    <Resource Include="Images\upgrades\Modification\servomotor-s-foils-attack.png" />
+    <Resource Include="Images\upgrades\Modification\servomotor-s-foils-closed.png" />
+    <Resource Include="Images\upgrades\Modification\shield-upgrade.png" />
+    <Resource Include="Images\upgrades\Modification\smuggling-compartment.png" />
+    <Resource Include="Images\upgrades\Modification\spacetug-tractor-array.png" />
+    <Resource Include="Images\upgrades\Modification\stealth-device.png" />
+    <Resource Include="Images\upgrades\Modification\stygium-particle-accelerator.png" />
+    <Resource Include="Images\upgrades\Modification\tactical-jammer.png" />
+    <Resource Include="Images\upgrades\Modification\targeting-computer.png" />
+    <Resource Include="Images\upgrades\Modification\twin-ion-engine-mkii.png" />
+    <Resource Include="Images\upgrades\Modification\vectored-thrusters.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\genius.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\overclocked-r4.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\r4-agromech.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\r4-b11.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\r4-e1.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\r5-p8.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\r5-tk.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\salvaged-astromech.png" />
+    <Resource Include="Images\upgrades\Salvaged Astromech\unhinged-astromech.png" />
+    <Resource Include="Images\upgrades\System\accuracy-corrector.png" />
+    <Resource Include="Images\upgrades\System\advanced-sensors.png" />
+    <Resource Include="Images\upgrades\System\advanced-targeting-computer.png" />
+    <Resource Include="Images\upgrades\System\collision-detector.png" />
+    <Resource Include="Images\upgrades\System\electronic-baffle.png" />
+    <Resource Include="Images\upgrades\System\enhanced-scopes.png" />
+    <Resource Include="Images\upgrades\System\fire-control-system.png" />
+    <Resource Include="Images\upgrades\System\minefield-mapper.png" />
+    <Resource Include="Images\upgrades\System\reinforced-deflectors.png" />
+    <Resource Include="Images\upgrades\System\sensor-jammer.png" />
+    <Resource Include="Images\upgrades\System\targeting-scrambler.png" />
+    <Resource Include="Images\upgrades\System\thrust-corrector.png" />
+    <Resource Include="Images\upgrades\System\trajectory-simulator.png" />
+    <Resource Include="Images\upgrades\Team\engineering-team.png" />
+    <Resource Include="Images\upgrades\Team\gunnery-team.png" />
+    <Resource Include="Images\upgrades\Team\ig-rm-thug-droids.png" />
+    <Resource Include="Images\upgrades\Team\ordnance-experts.png" />
+    <Resource Include="Images\upgrades\Team\sensor-team.png" />
+    <Resource Include="Images\upgrades\Tech\advanced-optics.png" />
+    <Resource Include="Images\upgrades\Tech\comm-relay.png" />
+    <Resource Include="Images\upgrades\Tech\hyperwave-comm-scanner.png" />
+    <Resource Include="Images\upgrades\Tech\pattern-analyzer.png" />
+    <Resource Include="Images\upgrades\Tech\primed-thrusters.png" />
+    <Resource Include="Images\upgrades\Tech\sensor-cluster.png" />
+    <Resource Include="Images\upgrades\Tech\targeting-synchronizer.png" />
+    <Resource Include="Images\upgrades\Tech\threat-tracker.png" />
+    <Resource Include="Images\upgrades\Tech\weapons-guidance.png" />
+    <Resource Include="Images\upgrades\Title\a-wing-test-pilot.png" />
+    <Resource Include="Images\upgrades\Title\adaptive-ailerons.png" />
+    <Resource Include="Images\upgrades\Title\advanced-ailerons.png" />
+    <Resource Include="Images\upgrades\Title\alliance-overhaul.png" />
+    <Resource Include="Images\upgrades\Title\andrasta.png" />
+    <Resource Include="Images\upgrades\Title\assailer.png" />
+    <Resource Include="Images\upgrades\Title\black-one.png" />
+    <Resource Include="Images\upgrades\Title\bright-hope.png" />
+    <Resource Include="Images\upgrades\Title\broken-horn.png" />
+    <Resource Include="Images\upgrades\Title\btl-a4-y-wing.png" />
+    <Resource Include="Images\upgrades\Title\concord-dawn-protector.png" />
+    <Resource Include="Images\upgrades\Title\crossfire-formation.png" />
+    <Resource Include="Images\upgrades\Title\dauntless.png" />
+    <Resource Include="Images\upgrades\Title\dodonna-s-pride.png" />
+    <Resource Include="Images\upgrades\Title\dutyfree.png" />
+    <Resource Include="Images\upgrades\Title\enforcer.png" />
+    <Resource Include="Images\upgrades\Title\first-order-vanguard.png" />
+    <Resource Include="Images\upgrades\Title\ghost-swx72.png" />
+    <Resource Include="Images\upgrades\Title\ghost.png" />
+    <Resource Include="Images\upgrades\Title\havoc.png" />
+    <Resource Include="Images\upgrades\Title\heavy-scyk-interceptor.png" />
+    <Resource Include="Images\upgrades\Title\hounds-tooth.png" />
+    <Resource Include="Images\upgrades\Title\ig-2000.png" />
+    <Resource Include="Images\upgrades\Title\impetuous.png" />
+    <Resource Include="Images\upgrades\Title\insatiable-worrt.png" />
+    <Resource Include="Images\upgrades\Title\instigator.png" />
+    <Resource Include="Images\upgrades\Title\jaina-s-light.png" />
+    <Resource Include="Images\upgrades\Title\kylo-rens-shuttle.png" />
+    <Resource Include="Images\upgrades\Title\light-scyk-interceptor.png" />
+    <Resource Include="Images\upgrades\Title\merchant-one.png" />
+    <Resource Include="Images\upgrades\Title\millennium-falcon-hotr.png" />
+    <Resource Include="Images\upgrades\Title\millennium-falcon.png" />
+    <Resource Include="Images\upgrades\Title\mist-hunter.png" />
+    <Resource Include="Images\upgrades\Title\moldy-crow.png" />
+    <Resource Include="Images\upgrades\Title\os-1-arsenal-loadout.png" />
+    <Resource Include="Images\upgrades\Title\outrider.png" />
+    <Resource Include="Images\upgrades\Title\phantom-ii.png" />
+    <Resource Include="Images\upgrades\Title\phantom.png" />
+    <Resource Include="Images\upgrades\Title\pivot-wing-attack.png" />
+    <Resource Include="Images\upgrades\Title\pivot-wing-landing.png" />
+    <Resource Include="Images\upgrades\Title\punishing-one.png" />
+    <Resource Include="Images\upgrades\Title\quantum-storm.png" />
+    <Resource Include="Images\upgrades\Title\requiem.png" />
+    <Resource Include="Images\upgrades\Title\royal-guard-tie.png" />
+    <Resource Include="Images\upgrades\Title\sabines-masterpiece.png" />
+    <Resource Include="Images\upgrades\Title\shadow-caster.png" />
+    <Resource Include="Images\upgrades\Title\slave-i.png" />
+    <Resource Include="Images\upgrades\Title\special-ops-training.png" />
+    <Resource Include="Images\upgrades\Title\st-321.png" />
+    <Resource Include="Images\upgrades\Title\starviper-mk-ii.png" />
+    <Resource Include="Images\upgrades\Title\suppressor.png" />
+    <Resource Include="Images\upgrades\Title\tantive-iv.png" />
+    <Resource Include="Images\upgrades\Title\tie-d.png" />
+    <Resource Include="Images\upgrades\Title\tie-shuttle.png" />
+    <Resource Include="Images\upgrades\Title\tie-v1.png" />
+    <Resource Include="Images\upgrades\Title\tie-x1.png" />
+    <Resource Include="Images\upgrades\Title\tie-x7.png" />
+    <Resource Include="Images\upgrades\Title\vaksai.png" />
+    <Resource Include="Images\upgrades\Title\vector.png" />
+    <Resource Include="Images\upgrades\Title\virago.png" />
+    <Resource Include="Images\upgrades\Title\xg-1-assault-configuration.png" />
+    <Resource Include="Images\upgrades\Torpedo\advanced-proton-torpedoes.png" />
+    <Resource Include="Images\upgrades\Torpedo\bomb-loadout.png" />
+    <Resource Include="Images\upgrades\Torpedo\extra-munitions.png" />
+    <Resource Include="Images\upgrades\Torpedo\flechette-torpedoes.png" />
+    <Resource Include="Images\upgrades\Torpedo\ion-torpedoes.png" />
+    <Resource Include="Images\upgrades\Torpedo\plasma-torpedoes.png" />
+    <Resource Include="Images\upgrades\Torpedo\proton-torpedoes.png" />
+    <Resource Include="Images\upgrades\Torpedo\renegade-refit.png" />
+    <Resource Include="Images\upgrades\Torpedo\seismic-torpedo.png" />
+    <Resource Include="Images\upgrades\Turret\autoblaster-turret.png" />
+    <Resource Include="Images\upgrades\Turret\blaster-turret.png" />
+    <Resource Include="Images\upgrades\Turret\dorsal-turret.png" />
+    <Resource Include="Images\upgrades\Turret\ion-cannon-turret.png" />
+    <Resource Include="Images\upgrades\Turret\synced-turret.png" />
+    <Resource Include="Images\upgrades\Turret\twin-laser-turret.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pilots\First Order\TIE Silencer\first-order-test-pilot.png" />
+    <Resource Include="Images\pilots\First Order\TIE Silencer\kylo-ren.png" />
+    <Resource Include="Images\pilots\First Order\TIE Silencer\sienar-jaemus-analyst.png" />
+    <Resource Include="Images\pilots\First Order\TIE Silencer\test-pilot-blackout.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\epsilon-ace.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\epsilon-leader.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\epsilon-squadron-pilot.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\omega-ace.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\omega-leader.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\omega-squadron-pilot.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\zeta-ace.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\zeta-leader.png" />
+    <Resource Include="Images\pilots\First Order\TIE-fo Fighter\zeta-squadron-pilot.png" />
+    <Resource Include="Images\pilots\First Order\TIE-sf Fighter\backdraft.png" />
+    <Resource Include="Images\pilots\First Order\TIE-sf Fighter\omega-specialist.png" />
+    <Resource Include="Images\pilots\First Order\TIE-sf Fighter\quickdraw.png" />
+    <Resource Include="Images\pilots\First Order\TIE-sf Fighter\zeta-specialist.png" />
+    <Resource Include="Images\pilots\First Order\Upsilon-class Shuttle\kylo-ren.png" />
+    <Resource Include="Images\pilots\First Order\Upsilon-class Shuttle\lieutenant-dormitz.png" />
+    <Resource Include="Images\pilots\First Order\Upsilon-class Shuttle\major-stridan.png" />
+    <Resource Include="Images\pilots\First Order\Upsilon-class Shuttle\starkiller-base-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Alpha-class Star Wing\lieutenant-karsabi.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Alpha-class Star Wing\major-vynder.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Alpha-class Star Wing\nu-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Alpha-class Star Wing\rho-squadron-veteran.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Firespray-31\boba-fett.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Firespray-31\bounty-hunter.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Firespray-31\kath-scarlet.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Firespray-31\krassis-trelix.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Gozanti-class Cruiser\gozanti-class-cruiser.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Lambda-class Shuttle\captain-kagi.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Lambda-class Shuttle\captain-yorr.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Lambda-class Shuttle\colonel-jendon.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Lambda-class Shuttle\omicron-group-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Raider-class Corvette\raider-class-corv-aft.png" />
+    <Resource Include="Images\pilots\Galactic Empire\Raider-class Corvette\raider-class-corv-fore.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Adv. Prototype\baron-of-the-empire.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Adv. Prototype\sienar-test-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Adv. Prototype\the-inquisitor.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Adv. Prototype\valen-rudor.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\commander-alozen.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\darth-vader.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\juno-eclipse.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\lieutenant-colzet.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\maarek-stele.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\storm-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\tempest-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Advanced\zertik-strom.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Aggressor\double-edge.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Aggressor\lieutenant-kestal.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Aggressor\onyx-squadron-escort.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Aggressor\sienar-specialist.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\captain-jonus.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\deathfire.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\gamma-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\gamma-squadron-veteran.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\major-rhymer.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\scimitar-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Bomber\tomax-bren.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\colonel-vessery.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\countess-ryad.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\delta-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\glaive-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\maarek-stele.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\onyx-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Defender\rexler-brath.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\academy-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\backstabber.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\black-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\chaser.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\dark-curse.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\howlrunner.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\mauler-mithel.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\night-beast.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\obsidian-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\scourge.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\wampa.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\winged-gundark.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Fighter\youngster.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\alpha-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\avenger-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\carnor-jax.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\fel-s-wrath.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\kir-kanos.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\lieutenant-lorrir.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\royal-guard-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\saber-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\soontir-fel.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\tetran-cowall.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Interceptor\turr-phennir.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Phantom\echo.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Phantom\shadow-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Phantom\sigma-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Phantom\whisper.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Punisher\black-eight-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Punisher\cutlass-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Punisher\deathrain.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Punisher\redline.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Reaper\captain-feroph.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Reaper\major-vermeil.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Reaper\scarif-base-pilot.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Reaper\vizier.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\black-squadron-scout.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\countdown.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\duchess.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\imperial-trainee.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\pure-sabacc.png" />
+    <Resource Include="Images\pilots\Galactic Empire\TIE Striker\scarif-defender.png" />
+    <Resource Include="Images\pilots\Galactic Empire\VT-49 Decimator\captain-oicunn.png" />
+    <Resource Include="Images\pilots\Galactic Empire\VT-49 Decimator\commander-kenkirk.png" />
+    <Resource Include="Images\pilots\Galactic Empire\VT-49 Decimator\patrol-leader.png" />
+    <Resource Include="Images\pilots\Galactic Empire\VT-49 Decimator\rear-admiral-chiraneau.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\arvel-crynyd.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\gemmer-sojan.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\green-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\jake-farrell.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\prototype-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\A-wing\tycho-celchu.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\ARC-170\braylen-stramm.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\ARC-170\norra-wexley.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\ARC-170\shara-bey.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\ARC-170\thane-kyrell.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Attack Shuttle\ezra-bridger.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Attack Shuttle\hera-syndulla.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Attack Shuttle\sabine-wren.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Attack Shuttle\zeb-orrelios.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Auzituck Gunship\kashyyyk-defender.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Auzituck Gunship\lowhhrick.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Auzituck Gunship\wookiee-liberator.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Auzituck Gunship\wullffwarro.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\blue-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\dagger-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\ibtisam.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\keyan-farlander.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\nera-dantels.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\B-wing\ten-numb.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\CR90 Corvette\cr90-corvette-aft.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\CR90 Corvette\cr90-corvette-fore.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\E-wing\blackmoon-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\E-wing\corran-horn.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\E-wing\etahn-a-baht.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\E-wing\knave-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\GR-75 Medium Transport\gr-75-medium-transport.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\HWK-290\jan-ors.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\HWK-290\kyle-katarn.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\HWK-290\rebel-operative.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\HWK-290\roark-garnet.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\K-wing\esege-tuketu.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\K-wing\guardian-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\K-wing\miranda-doni.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\K-wing\warden-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Scurrg H-6 Bomber\captain-nym.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Sheathipede-class Shuttle\ap-5.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Sheathipede-class Shuttle\ezra-bridger.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Sheathipede-class Shuttle\fenn-rau.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Sheathipede-class Shuttle\zeb-orrelios.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\TIE Fighter\ahsoka-tano.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\TIE Fighter\captain-rex.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\TIE Fighter\sabine-wren.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\TIE Fighter\zeb-orrelios.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\benthic-two-tubes.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\blue-squadron-pathfinder.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\bodhi-rook.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\cassian-andor.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\heff-tobber.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\magva-yarro.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\partisan-renegade.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\U-wing\saw-gerrera.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\VCX-100\chopper.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\VCX-100\hera-syndulla.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\VCX-100\kanan-jarrus.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\VCX-100\lothal-rebel.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\biggs-darklighter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\cavern-angels-zealot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\edrio-two-tubes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\garven-dreis.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\hobbie-klivian.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\jek-porkins.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\kullbee-sperado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\leevan-tenza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\luke-skywalker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\red-squadron-pilot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\rookie-pilot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\tarn-mison.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\wedge-antilles.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\X-wing\wes-janson.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pilots\Rebel Alliance\Y-wing\dutch-vander.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Y-wing\gold-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Y-wing\gray-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Y-wing\horton-salm.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-1300\chewbacca.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-1300\han-solo.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-1300\lando-calrissian.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-1300\outer-rim-smuggler.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-2400\dash-rendar.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-2400\eaden-vrill.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-2400\leebo.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\YT-2400\wild-space-fringer.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Z-95 Headhunter\airen-cracken.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Z-95 Headhunter\bandit-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Z-95 Headhunter\lieutenant-blount.png" />
+    <Resource Include="Images\pilots\Rebel Alliance\Z-95 Headhunter\tala-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Resistance\B-SF-17 Bomber\cobalt-leader.png" />
+    <Resource Include="Images\pilots\Resistance\B-SF-17 Bomber\crimson-leader.png" />
+    <Resource Include="Images\pilots\Resistance\B-SF-17 Bomber\crimson-specialist.png" />
+    <Resource Include="Images\pilots\Resistance\B-SF-17 Bomber\crimson-squadron-pilot.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\blue-ace.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\blue-squadron-novice.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\ello-asty.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\jess-pava.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\nien-nunb.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\poe-dameron-hotr.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\poe-dameron.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\red-ace.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\red-squadron-veteran.png" />
+    <Resource Include="Images\pilots\Resistance\T-70 X-wing\snap-wexley.png" />
+    <Resource Include="Images\pilots\Resistance\YT-1300\chewbacca.png" />
+    <Resource Include="Images\pilots\Resistance\YT-1300\han-solo.png" />
+    <Resource Include="Images\pilots\Resistance\YT-1300\resistance-sympathizer.png" />
+    <Resource Include="Images\pilots\Resistance\YT-1300\rey.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Aggressor\ig-88a.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Aggressor\ig-88b.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Aggressor\ig-88c.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Aggressor\ig-88d.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\C-ROC Cruiser\c-roc-cruiser.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Firespray-31\boba-fett.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Firespray-31\emon-azzameen.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Firespray-31\kath-scarlet.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Firespray-31\mandalorian-mercenary.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\G-1A Starfighter\4-lom.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\G-1A Starfighter\gand-findsman.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\G-1A Starfighter\ruthless-freelancer.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\G-1A Starfighter\zuckuss.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\HWK-290\dace-bonearm.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\HWK-290\palob-godalhi.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\HWK-290\spice-runner.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\HWK-290\torkil-mux.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\JumpMaster 5000\contracted-scout.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\JumpMaster 5000\dengar.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\JumpMaster 5000\manaroo.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\JumpMaster 5000\tel-trevura.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\black-sun-ace.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\captain-jostero.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\cartel-marauder.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\graz-the-hunter.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\talonbane-cobra.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Kihraxz Fighter\viktor-hel.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Lancer-class Pursuit Craft\asajj-ventress.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Lancer-class Pursuit Craft\ketsu-onyo.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Lancer-class Pursuit Craft\sabine-wren.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Lancer-class Pursuit Craft\shadowport-hunter.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M12-L Kimogila Fighter\cartel-brute.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M12-L Kimogila Fighter\cartel-executioner.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M12-L Kimogila Fighter\dalan-oberos.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M12-L Kimogila Fighter\torani-kulda.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\cartel-spacer.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\genesis-red.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\inaldra.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\laetin-a-shera.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\quinn-jast.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\serissu.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\sunny-bounder.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\M3-A Interceptor\tansarii-point-veteran.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\concord-dawn-ace.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\concord-dawn-veteran.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\fenn-rau.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\kad-solus.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\old-teroch.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Protectorate Starfighter\zealous-recruit.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Quadjumper\constable-zuvio.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Quadjumper\jakku-gunrunner.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Quadjumper\sarco-plank.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Quadjumper\unkar-plutt.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Scurrg H-6 Bomber\captain-nym.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Scurrg H-6 Bomber\karthakk-pirate.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Scurrg H-6 Bomber\lok-revenant.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Scurrg H-6 Bomber\sol-sixxa.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\black-sun-assassin.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\black-sun-enforcer.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\black-sun-vigo.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\dalan-oberos.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\guri.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\prince-xizor.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\StarViper\thweek.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Y-wing\drea-renthal.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Y-wing\hired-gun.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Y-wing\kavil.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Y-wing\syndicate-thug.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\YV-666\bossk.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\YV-666\latts-razzi.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\YV-666\moralo-eval.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\YV-666\trandoshan-slaver.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Z-95 Headhunter\binayre-pirate.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Z-95 Headhunter\black-sun-soldier.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Z-95 Headhunter\kaa-to-leeachos.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Z-95 Headhunter\n-dru-suhlak.png" />
+    <Resource Include="Images\pilots\Scum and Villainy\Z-95 Headhunter\nashtah-pup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UpgradeCards.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Delete_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Programming-Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\import-file-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\XWBuilderIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
